@@ -115,7 +115,45 @@
 			fclose($archivo); // Cerrando el archivo
 			return $cont - $comTotal;	
 		}
-					
+	/*******************ESFUERZO APLICADO*********************/
+	public function  esfuerzoAplicado($eaf, $valor_a, $valor_b, $linea_codigo)
+	{
+		$linea_codigo= ($linea_codigo/1000);
+		$operacion_potencia = pow ($linea_codigo , $valor_b );
+		$operacion_multiplicacion = $eaf * $valor_a * $operacion_potencia;
+		
+		return $operacion_multiplicacion;
 	}
+
+	/*******************ESFUERZO DESARROLLO*********************/
+	public function tiempoProyecto($valor_c, $total_esfuerzo, $valor_d)
+	{
+		$operacion_potencia = pow($total_esfuerzo, $valor_d );
+		$operacion_multiplicacion = $valor_c * $operacion_potencia;
+		return $operacion_multiplicacion;
+	}
+
+	/*******************PERSONAS*********************/
+	public function personalNecesario($total_esfuerzo,  $tiempo_desarrollo)
+	{
+		$operacion = $total_esfuerzo / $tiempo_desarrollo;
+		if ($operacion > 0 && $operacion < 1.00) {
+			return 1;
+		}else{
+			return $operacion;
+		}
+		
+	}
+	/*******************GASTOS PERSONAS*********************/
+	public function gastoDesarrollador($personal,$tiempo_desarrollo, $costo_desarrollo)
+	{
+	
+		$costo_desarrollo_semanal = $costo_desarrollo /4;
+		$costo_semanal = $costo_desarrollo_semanal * $tiempo_desarrollo;
+		$costo_total = $costo_semanal * $personal;
+		$costo_total10 = $costo_total * 0.10;
+		return $costo_total + $costo_total10;
+	} 
+}				
 
  ?>
