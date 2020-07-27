@@ -1,7 +1,7 @@
 <?php 
 	class Proceso
 	{
-		public $total =0;
+		private $total =0;
 		
 		/******* funcion para leer archivos
 			guias: https://www.php.net/manual/es/ref.dir.php
@@ -41,13 +41,15 @@
 				}
 			
 			}else{
-				echo "Ruta no valida";
+				return "Ruta no valida";
 			}
-			
-			
-			return $total;
-			
-					
+			if ($total != 0) {
+				
+				return $total;	
+			}else{
+				header("Location: index.php");
+			}
+				
 		}
 		
 
@@ -55,7 +57,7 @@
 		a la extencion tipo java, php, o node
 		guia: https://www.php.net/manual/es/splfileinfo.getextension.php*/
 
-		public  function validarExtension($elemento)
+		private  function validarExtension($elemento)
 		{
 			 $extension = strtolower(pathinfo($elemento,PATHINFO_EXTENSION)); //obtengo la extension del elemeto
 			 $valid_extensions = array('php', 'java','js'); //array de extensiones validas
@@ -72,7 +74,7 @@
 		guia: https://unipython.com/leer-el-contenido-de-un-archivo-en-php/
 		https://www.php.net/manual/es/function.ctype-space.php
 		*/
-		public function contadorLinea($elemento, $directorio)
+		private function contadorLinea($elemento, $directorio)
 		{
 			$cont =0;
 			$coment =0;
@@ -177,9 +179,10 @@
 				$costo_desarrollo_semanal = $costo_desarrollo /4;
 				$costo_semanal = $costo_desarrollo_semanal * $tiempo_desarrollo;
 				$costo_total = $costo_semanal * $personal;
-				$costo_total10 = $costo_total * 0.10;
-				return $costo_total + $costo_total10;
-				//return $personal;
+				$valor_imprevisto = $costo_total * 0.10;
+				$total = $costo_total + $valor_imprevisto;
+				
+				return $total;
 			}
 			else{
 				return "no se puede resolver, envie los campos completos";
