@@ -56,26 +56,12 @@
 			</div>
 			<!--CARGA DE ARCHIVOS-->
 			<div class="col-4">
-				<form action="cargar-archivo.php" method="post">
-					<p>Seleccionar ruta del directorio</p>
-					<input type="text" name="directorio" /><br/><br/>
-					<p>Seleccionar tipo de Proyecto de Software</p>
-					<select name="opcion">
-						<option value="a" selected>Organicos</option> 
-						<option value="b">Semiseparados</option>
-						<option value="c">Integrales</option>
-					</select>
-					<br/><br/>
-					<p>Pago mensual a programadores</p>
-					<input type="number" name="pago" /><br/><br/>
-					<p>EAF</p>
-					<input type="text" name="eaf" /><br/><br/>
-					<input type="submit" name="submit" value="Simular" />
-				</form>
+				
 			</div>
 		</div>
 		<div class="row fila">
 			<div class="col-8">
+			<form action="index.php">
 				<table class="table">
 					<thead>
 						<tr class="tableTitle">
@@ -104,13 +90,13 @@
 							<td></td>
 							<td>1,40</td>
 							<td>
-							<select name="select">
+							<select name="crs" id="crs">
 								<option value="0.75">Muy Bajo</option> 
-								<option value="0.88" selected>Bajo</option>
+								<option value="0.88">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="1.15">Alto</option>
 								<option value="1.40">Muy Alto</option>
-								<option value="1.40">Recomendado</option>
+								<option value="1.40" selected>Recomendado</option>
 							</select>
 							</td>	
 						</tr>
@@ -124,12 +110,12 @@
 							<td></td>
 							<td>1,08</td>
 							<td>
-							<select name="select">
-								<option value="0.94" selected>Bajo</option>
+							<select name="tbd" id="tbd">
+								<option value="0.94">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="1.08">Alto</option>
 								<option value="1.16">Muy Alto</option>
-								<option value="1.08">Recomendado</option>
+								<option value="1.08" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -143,14 +129,14 @@
 							<td>1,65</td>
 							<td>1,00</td>
 							<td>
-							<select name="select">
+							<select name="cp" id="cp">
 								<option value="0.70">Muy Bajo</option> 
-								<option value="0.85" selected>Bajo</option>
+								<option value="0.85">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="1.15">Alto</option>
 								<option value="1.30">Muy Alto</option>
 								<option value="1.65">Extra Alto</option>
-								<option value="1.00">Recomendado</option>
+								<option value="1.00" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -168,12 +154,12 @@
 							<td>1,66</td>
 							<td>1,00</td>
 							<td>
-							<select name="select">
+							<select name="lrt" id="lrt">
 								<option value="1.00">Normal</option>
 								<option value="1.11">Alto</option>
 								<option value="1.30">Muy Alto</option>
 								<option value="1.66">Extra Alto</option>
-								<option value="1.00">Recomendado</option>
+								<option value="1.00" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -187,12 +173,12 @@
 							<td>1,56</td>
 							<td>1,00</td>
 							<td>
-							<select name="select">
+							<select name="lm" id="lm">
 								<option value="1.00">Normal</option>
 								<option value="1.06">Alto</option>
 								<option value="1.21">Muy Alto</option>
 								<option value="1.56">Extra Alto</option>
-								<option value="1.00">Recomendado</option>
+								<option value="1.00" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -206,12 +192,12 @@
 							<td></td>
 							<td>0,87</td>
 							<td>
-							<select name="select"> 
-								<option value="0.87" selected>Bajo</option>
+							<select name="vem" id="vem" > 
+								<option value="0.87">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="1.15">Alto</option>
 								<option value="1.30">Muy Alto</option>
-								<option value="0.87">Recomendado</option>
+								<option value="0.87" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -225,12 +211,12 @@
 							<td></td>
 							<td>1,07</td>
 							<td>
-							<select name="select">
-								<option value="0.87" selected>Bajo</option>
+							<select name="trr" id="trr">
+								<option value="0.87">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="1.07">Alto</option>
 								<option value="1.15">Muy Alto</option>
-								<option value="1.07">Recomendado</option>
+								<option value="1.07" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -248,13 +234,13 @@
 							<td></td>
 							<td>0,86</td>
 							<td>
-							<select name="select">
+							<select name="ca" id="ca">
 								<option value="1.46">Muy Bajo</option> 
-								<option value="1.19" selected>Bajo</option>
+								<option value="1.19">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="0.86">Alto</option>
 								<option value="0.71">Muy Alto</option>
-								<option value="0.86">Recomendado</option>
+								<option value="0.86" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -268,13 +254,13 @@
 							<td></td>
 							<td>0,91</td>
 							<td>
-							<select name="select">
+							<select name="cis" id="cis">
 								<option value="1.29">Muy Bajo</option> 
-								<option value="1.13" selected>Bajo</option>
+								<option value="1.13">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="0.91">Alto</option>
 								<option value="0.82">Muy Alto</option>
-								<option value="0.91">Recomendado</option>
+								<option value="0.91" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -288,13 +274,13 @@
 							<td></td>
 							<td>0,86</td>
 							<td>
-							<select name="select">
+							<select name="ea" id="ea">
 								<option value="1.42">Muy Bajo</option> 
-								<option value="1.17" selected>Bajo</option>
+								<option value="1.17">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="0.86">Alto</option>
 								<option value="0.70">Muy Alto</option>
-								<option value="0.86">Recomendado</option>
+								<option value="0.86" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -306,14 +292,14 @@
 							<td>0,95</td>
 							<td></td>
 							<td></td>
-							<td>0,95</td>
+							<td>1,10</td>
 							<td>
-							<select name="select">
+							<select name="emv" id="emv">
 								<option value="1.21">Muy Bajo</option> 
-								<option value="1.10" selected>Bajo</option>
+								<option value="1.10">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="0.95">Alto</option>
-								<option value="0.95">Recomendado</option>
+								<option value="1.10" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -327,12 +313,12 @@
 							<td></td>
 							<td>0,95</td>
 							<td>
-							<select name="select">
+							<select name="elp" id="elp">
 								<option value="1.14">Muy Bajo</option> 
-								<option value="1.07" selected>Bajo</option>
+								<option value="1.07">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="0.95">Alto</option>
-								<option value="0.95">Recomendado</option>
+								<option value="0.95" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -350,13 +336,13 @@
 							<td></td>
 							<td>0,91</td>
 							<td>
-							<select name="select">
+							<select name="uhs" id="uhs">
 								<option value="1.24">Muy Bajo</option> 
-								<option value="1.10" selected>Bajo</option>
+								<option value="1.10">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="0.91">Alto</option>
 								<option value="0.82">Muy Alto</option>
-								<option value="0.91">Recomendado</option>
+								<option value="0.91" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -370,13 +356,13 @@
 							<td></td>
 							<td>1,00</td>
 							<td>
-							<select name="select">
+							<select name="ami" id="ami">
 								<option value="1.24">Muy Bajo</option> 
-								<option value="1.10" selected>Bajo</option>
+								<option value="1.10">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="0.91">Alto</option>
 								<option value="0.83">Muy Alto</option>
-								<option value="1.00">Recomendado</option>
+								<option value="1.00" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -390,13 +376,13 @@
 							<td></td>
 							<td>1,04</td>
 							<td>
-							<select name="select">
+							<select name="pdr" id="pdr">
 								<option value="1.23">Muy Bajo</option> 
-								<option value="1.08" selected>Bajo</option>
+								<option value="1.08">Bajo</option>
 								<option value="1.00">Normal</option>
 								<option value="1.04">Alto</option>
 								<option value="1.10">Muy Alto</option>
-								<option value="1.04">Recomendado</option>
+								<option value="1.04" selected>Recomendado</option>
 							</select>
 							</td>
 						</tr>
@@ -414,8 +400,35 @@
 						</tr>
 					</tbody>
 				</table>
+				<input type="submit" name="btnCalcular" value="Calcular" onclick="this.form.submit()">
 			</div>
+			<?php
+				$total = $_GET["crs"] * $_GET["tbd"] * $_GET["cp"] * $_GET["lrt"] * $_GET["lm"] * $_GET["vem"] * $_GET["trr"] * $_GET["ca"] * $_GET["cis"] * $_GET["ea"] * $_GET["emv"] * $_GET["elp"] * $_GET["uhs"] * $_GET["ami"] * $_GET["pdr"];
+				//echo $total;
+				//echo $_GET["crs"] * $_GET["tbd"] * $_GET["cp"] * $_GET["lrt"] * $_GET["lm"] * $_GET["vem"] * $_GET["trr"] * $_GET["ca"] * $_GET["cis"] * $_GET["ea"] * $_GET["emv"] * $_GET["elp"] * $_GET["uhs"] * $_GET["ami"] * $_GET["pdr"];
+				//echo $_GET["emv"];
+			?>
 			<div class="col-4">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-5">
+				<form action="cargar-archivo.php" method="post">
+						<p>Seleccionar ruta del directorio</p>
+						<input type="text" name="directorio" /><br/><br/>
+						<p>Seleccionar tipo de Proyecto de Software</p>
+						<select name="opcion">
+							<option value="a" selected>Organicos</option> 
+							<option value="b">Semiseparados</option>
+							<option value="c">Integrales</option>
+						</select>
+						<br/><br/>
+						<p>Pago mensual a programadores</p>
+						<input type="number" name="pago" /><br/><br/>
+						<p>EAF</p>
+						<input type="text" name="eaf" value="<?php echo $total; ?>"/><br/><br/>
+						<input type="submit" name="submit" value="Simular" />
+					</form>
 			</div>
 		</div>
 	</div>
