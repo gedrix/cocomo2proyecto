@@ -125,20 +125,29 @@
 			return $cont - $comTotal;	
 		}
 							
-		/*******************ESFUERZO APLICADO*********************/
-		public function  esfuerzoAplicado($eaf, $valor_a, $valor_b, $linea_codigo)
+		/*******************ESFUERZO APLICADO********************/
+		public function esfuerzoAplicado($eaf, $valor_a, $valor_b, $linea_codigo)
 		{
 			if ($eaf != "" && $valor_a!= "" && $valor_b!= "" && $linea_codigo!= "" ) {
 				$linea_codigo= ($linea_codigo/1000);
 				$operacion_potencia = pow ($linea_codigo , $valor_b );
 				$operacion_multiplicacion = $eaf * $valor_a * $operacion_potencia;
-			
-				return $operacion_multiplicacion;
+				
+				if ($operacion_multiplicacion >0) {
+					return $operacion_multiplicacion;
+				}else{
+					return "no se puede resolver";
+				}
+				
 			}else{
-				return "no se puede resolver, envie los campos completos";
+				return "no se puede resolver";
 			}
 			
 		}
+		//public function  esfuerzoAplicado()
+		//{
+		//	return "hola";
+		//}
 
 		/*******************ESFUERZO DESARROLLO*********************/
 		public function tiempoProyecto($valor_c, $total_esfuerzo, $valor_d)
@@ -148,7 +157,7 @@
 				$operacion_multiplicacion = $valor_c * $operacion_potencia;
 				return round ($operacion_multiplicacion, 1);
 			}else{
-				return "no se puede resolver, envie los campos completos";
+				return "no se puede resolver";
 			}
 			
 		}
@@ -165,13 +174,13 @@
 				}
 			
 			}else{
-				return "no se puede resolver, envie los campos completos";
+				return "no se puede resolver";
 			}
 			
 		}
 		
 		/*******************GASTOS PERSONAS*********************/
-		public function gastoDesarrollador($personal,$tiempo_desarrollo, $costo_desarrollo)
+		public function gastoDesarrollador( $personal, $tiempo_desarrollo, $costo_desarrollo, $imprevistos)
 		{
 
 			if ($personal != "" && $tiempo_desarrollo != "" && $costo_desarrollo!= "") {
@@ -179,13 +188,13 @@
 				$costo_desarrollo_semanal = $costo_desarrollo /4;
 				$costo_semanal = $costo_desarrollo_semanal * $tiempo_desarrollo;
 				$costo_total = $costo_semanal * $personal;
-				$valor_imprevisto = $costo_total * 0.10;
-				$total = $costo_total + $valor_imprevisto;
+				$valor_olgura = $costo_total * 0.10;
+				$total = $costo_total + $valor_olgura + $imprevistos;
 				
 				return $total;
 			}
 			else{
-				return "no se puede resolver, envie los campos completos";
+				return "no se puede resolver";
 			}
 			
 		} 
