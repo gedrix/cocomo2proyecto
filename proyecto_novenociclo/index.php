@@ -9,7 +9,29 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+	<script>
+		function getSelect(){
+			var crs = document.getElementById('crs').value;
+			var tbd = document.getElementById('tbd').value;
+			var cp = document.getElementById('cp').value;
+			var lrt = document.getElementById('lrt').value;
+			var lm = document.getElementById('lm').value;
+			var vem = document.getElementById('vem').value;
+			var trr = document.getElementById('trr').value;
+			var ca = document.getElementById('ca').value;
+			var cis = document.getElementById('cis').value;
+			var ea = document.getElementById('ea').value;
+			var emv = document.getElementById('emv').value;
+			var elp = document.getElementById('elp').value;
+			var uhs = document.getElementById('uhs').value;
+			var ami = document.getElementById('ami').value;
+			var pdr = document.getElementById('pdr').value;
+			
+			var eaf = crs * tbd * cp * lrt * lm * vem * trr * ca * cis * ea * emv * elp * uhs * ami * pdr;
+			//alert(eaf);
+			document.getElementById("eaf").value = eaf;
+		}
+	</script>
 </head>
 <body>
 	<h1 class="titulos">COCOMO 2 - LINEAS DE CODIGO</h1>
@@ -61,7 +83,6 @@
 		</div>
 		<div class="row fila">
 			<div class="col-8">
-			<form action="index.php">
 				<table class="table">
 					<thead>
 						<tr class="tableTitle">
@@ -400,36 +421,30 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" name="btnCalcular" value="Calcular" onclick="this.form.submit()">
+				<input type="submit" name="btnCalcular" value="Calcular" onclick="getSelect()">
 			</div>
-			<?php
-				$total = $_GET["crs"] * $_GET["tbd"] * $_GET["cp"] * $_GET["lrt"] * $_GET["lm"] * $_GET["vem"] * $_GET["trr"] * $_GET["ca"] * $_GET["cis"] * $_GET["ea"] * $_GET["emv"] * $_GET["elp"] * $_GET["uhs"] * $_GET["ami"] * $_GET["pdr"];
-				//echo $total;
-				//echo $_GET["crs"] * $_GET["tbd"] * $_GET["cp"] * $_GET["lrt"] * $_GET["lm"] * $_GET["vem"] * $_GET["trr"] * $_GET["ca"] * $_GET["cis"] * $_GET["ea"] * $_GET["emv"] * $_GET["elp"] * $_GET["uhs"] * $_GET["ami"] * $_GET["pdr"];
-				//echo $_GET["emv"];
-			?>
 			<div class="col-4">
+				<form action="cargar-archivo.php" method="post">
+					<p>Seleccionar ruta del directorio</p>
+					<input type="text" name="directorio" /><br/><br/>
+					<p>Seleccionar tipo de Proyecto de Software</p>
+					<select name="opcion">
+						<option value="a" selected>Organicos</option> 
+						<option value="b">Semiseparados</option>
+						<option value="c">Integrales</option>
+					</select>
+					<br/><br/>
+					<p>Pago mensual a programadores</p>
+					<input type="number" name="pago" /><br/><br/>
+					<p>EAF</p>
+					<input type="text" name="eaf" id="eaf"/><br/><br/>
+					<p>Imprevistos</p>
+					<input type="number" name="imprevistos" id="imprevistos"/><br/><br/>
+					<input type="submit" name="submit" value="Simular" />
+				</form>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-5">
-				<form action="cargar-archivo.php" method="post">
-						<p>Seleccionar ruta del directorio</p>
-						<input type="text" name="directorio" /><br/><br/>
-						<p>Seleccionar tipo de Proyecto de Software</p>
-						<select name="opcion">
-							<option value="a" selected>Organicos</option> 
-							<option value="b">Semiseparados</option>
-							<option value="c">Integrales</option>
-						</select>
-						<br/><br/>
-						<p>Pago mensual a programadores</p>
-						<input type="number" name="pago" /><br/><br/>
-						<p>EAF</p>
-						<input type="text" name="eaf" value="<?php echo $total; ?>"/><br/><br/>
-						<input type="submit" name="submit" value="Simular" />
-					</form>
-			</div>
+		<div class="row">			
 		</div>
 	</div>
 	 
