@@ -43,7 +43,7 @@
 			}else{
 				return "Ruta no valida";
 			}
-			if ($total >= 0) {
+			if ($total != 0) {
 				
 				return $total;	
 			}else{
