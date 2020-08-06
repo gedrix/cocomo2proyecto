@@ -15,7 +15,7 @@
 		$imprevistos = $_POST['imprevistos'];
 		switch ($proyecto_soft) {
 			case 'a':
-				$tipo_proyecto="Organico";
+				$tipo_proyecto="Orgánico";
 				$total_linea_codigo =  $proceso->leerArchivos($directorio);
 				if ($total_linea_codigo != "Ruta no valida") {
 					//echo $total_linea_codigo;
@@ -88,6 +88,7 @@
 		header("Location: index.php");
 	}
 	
+	$cadena = $directorio."-".$tipo_proyecto."-".$costo_desarrollo."-".$eaf."-".$imprevistos."-".$total_linea_codigo."-".$total_esfuerzo."-".$tiempo_desarrollo."-".$personal."-".$gastoProgramador;
 	
  ?>
  <!DOCTYPE html>
@@ -110,6 +111,7 @@
  </head>
 
  <body>
+ 	<center><img src="cocomo.png" width="100%" height="20%"></center>
 	<div class="container">
 		<div class="row">
 		<div class="col-6">
@@ -165,7 +167,7 @@
 			</div>
 			<br>
   			<div class="col-4">
-  				<button type="button" class="btn btn-info">Generar Reporte</button>
+  				<a class="btn btn-primary" href="reporte.php?v1=<?php echo $cadena;?>">Descargar PDF</a>
   			</div>
 
 		</div>
