@@ -129,16 +129,19 @@
 		public function esfuerzoAplicado($eaf, $valor_a, $valor_b, $linea_codigo)
 		{
 			if ($eaf != "" && $valor_a!= "" && $valor_b!= "" && $linea_codigo!= "" ) {
-				$linea_codigo= ($linea_codigo/1000);
-				$operacion_potencia = pow ($linea_codigo , $valor_b );
-				$operacion_multiplicacion = $eaf * $valor_a * $operacion_potencia;
+				if (is_numeric($eaf) && is_numeric($valor_a)  &&  is_numeric($valor_b)  && is_numeric($linea_codigo) ) {
+					$linea_codigo= ($linea_codigo/1000);
+					$operacion_potencia = pow ($linea_codigo , $valor_b );
+					$operacion_multiplicacion = $eaf * $valor_a * $operacion_potencia;
 				
-				if ($operacion_multiplicacion >0) {
-					return $operacion_multiplicacion;
+					if ($operacion_multiplicacion >0) {
+						return round ($operacion_multiplicacion, 2);
+					}else{
+					return "no se puede resolver";
+					}
 				}else{
 					return "no se puede resolver";
-				}
-				
+				}				
 			}else{
 				return "no se puede resolver";
 			}
