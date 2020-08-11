@@ -78,18 +78,8 @@
 			</div>
 			<!--CARGA DE ARCHIVOS-->
 		
-				<div class="col-4">
-				<form action="cargar-archivo.php" method="post">
-					<br><br><p>Seleccionar ruta del directorio</p>
-					<input class="form-control" type="text" name="directorio" /><br/>
-					<p>Seleccionar tipo de Proyecto de Software</p>
-					<select class="form-control" name="opcion">
-						<option value="a" selected>Orgánicos</option> 
-						<option value="b">Semiseparados</option>
-						<option value="c">Integrales</option>
-					</select>
-				</form>
-		
+			<div class="col-4">
+			
 			</div>
 		</div>
 		<div class="row fila">
@@ -443,7 +433,14 @@
 			</div>
 			<div class="col-4">
 				<form action="cargar-archivo.php" method="post">
-					
+					<br><br><p>Seleccionar ruta del directorio</p>
+					<input class="form-control" type="text" name="directorio" /><br/>
+					<p>Seleccionar tipo de Proyecto de Software</p>
+					<select class="form-control" name="opcion">
+						<option value="a" selected>Orgánicos</option> 
+						<option value="b">Semiseparados</option>
+						<option value="c">Integrales</option>
+					</select>
 					<p>Pago mensual a programadores</p>
 					<input class="form-control" type="number" name="pago" /><br>
 					<p>EAF</p>
