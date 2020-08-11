@@ -146,11 +146,11 @@
 				</tr>
 				<tr>
 				<td scope="col">TIEMPO DE DESARROLLO</td>
-				<td><?php echo $tiempo_desarrollo?></td>
+				<td><?php echo $tiempo_desarrollo." semanas"?></td>
 				</tr>
 				<tr>
 				<td scope="col">PERSONAS REQUERIDAS</td>
-				<td><?php echo $personal?></td>
+				<td><?php echo $personal." personas"?></td>
 				</tr>
 				<tr>
 				<td scope="col">TOTAL GASTOS</td>

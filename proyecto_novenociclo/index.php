@@ -34,14 +34,14 @@
 	</script>
 </head>
 <body>
-	<h1 class="titulos">COCOMO 2 - LINEAS DE CODIGO</h1>
+	<center><img src="cocomo.png" width="100%"></center>
 	<div class="container-fluid">
 		<div class="row fila">
 			<div class="col-8">
 			<table class="table">
 				<thead>
 					<tr class="tableTitle">
-					<th scope="col">PROYECTO DE SOFTWARE</th>
+					<th scope="col">TIPO DE PROYECTO DE SOFTWARE</th>
 					<th scope="col">Ab</th>
 					<th scope="col">Bb</th>
 					<th scope="col">Cb</th>
@@ -77,13 +77,31 @@
 			</table>
 			</div>
 			<!--CARGA DE ARCHIVOS-->
-			<div class="col-4">
-				
+		
+				<div class="col-4">
+				<form action="cargar-archivo.php" method="post">
+					<br><br><p>Seleccionar ruta del directorio</p>
+					<input class="form-control" type="text" name="directorio" /><br/>
+					<p>Seleccionar tipo de Proyecto de Software</p>
+					<select class="form-control" name="opcion">
+						<option value="a" selected>Orgánicos</option> 
+						<option value="b">Semiseparados</option>
+						<option value="c">Integrales</option>
+					</select>
+				</form>
+		
 			</div>
 		</div>
 		<div class="row fila">
 			<div class="col-8">
 				<table class="table">
+					<tr class="tableTitle">
+						<th>CALCULAR ATRIBUTOS DEL PROYECTO Y COEFICIENTE EAF</th>
+						<td> <input class="btn btn-primary" type="submit" name="btnCalcular" value="Calcular" onclick="getSelect()"></td>
+					</tr>
+				</table>
+				<table class="table">
+
 					<thead>
 						<tr class="tableTitle">
 						<th scope="col">Atributos</th>
@@ -99,7 +117,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="9" class="tableTitle">ATRIBUTOS DEL PRODUCTO</td>
+							<th colspan="9" class="tableTitle">ATRIBUTOS DEL PRODUCTO</th>
 						</tr>
 						<tr>
 							<th scope="row">Confiabilidad requerida del software</th>
@@ -163,7 +181,7 @@
 						</tr>
 						<!--2 parte de la tabla-->
 						<tr>
-							<td colspan="9" class="tableTitle">ATRIBUTOS DEL HARDWARE</td>
+							<th colspan="9" class="tableTitle">ATRIBUTOS DEL HARDWARE</th>
 						</tr>
 						<tr>
 							<th scope="row">Limitaciones del rendimiento en tiempo real</th>
@@ -243,7 +261,7 @@
 						</tr>
 						<!--Parte 3-->
 						<tr>
-							<td colspan="9" class="tableTitle">ATRIBUTOS DEL PERSONAL</td>
+							<th colspan="9" class="tableTitle">ATRIBUTOS DEL PERSONAL</th>
 						</tr>
 						<tr>
 							<th scope="row">Capacidad de análisis</th>
@@ -345,7 +363,7 @@
 						</tr>
 						<!--Parte 4-->
 						<tr>
-							<td colspan="9" class="tableTitle">ATRIBUTOS DEL PROYECTO</td>
+							<th colspan="9" class="tableTitle">ATRIBUTOS DEL PROYECTO</th>
 						</tr>
 						<tr>
 							<th scope="row">Uso de herramientas de software</th>
@@ -421,27 +439,20 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" name="btnCalcular" value="Calcular" onclick="getSelect()">
+				
 			</div>
 			<div class="col-4">
 				<form action="cargar-archivo.php" method="post">
-					<p>Seleccionar ruta del directorio</p>
-					<input type="text" name="directorio" /><br/><br/>
-					<p>Seleccionar tipo de Proyecto de Software</p>
-					<select name="opcion">
-						<option value="a" selected>Organicos</option> 
-						<option value="b">Semiseparados</option>
-						<option value="c">Integrales</option>
-					</select>
-					<br/><br/>
+					
 					<p>Pago mensual a programadores</p>
-					<input type="number" name="pago" /><br/><br/>
+					<input class="form-control" type="number" name="pago" /><br>
 					<p>EAF</p>
-					<input type="text" name="eaf" id="eaf"/><br/><br/>
+					<input class="form-control" type="text" name="eaf" id="eaf" required/><br>
 					<p>Imprevistos</p>
-					<input type="number" name="imprevistos" id="imprevistos"/><br/><br/>
-					<input type="submit" name="submit" value="Simular" />
+					<input class="form-control" type="number" name="imprevistos" id="imprevistos"/><br>
+					<input class="btn btn-primary" type="submit" name="submit" value="Simular" />
 				</form>
+		
 			</div>
 		</div>
 		<div class="row">			
