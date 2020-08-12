@@ -57,7 +57,7 @@
 		a la extencion tipo java, php, o node
 		guia: https://www.php.net/manual/es/splfileinfo.getextension.php*/
 
-		private  function validarExtension($elemento)
+		public function validarExtension($elemento)
 		{
 			 $extension = strtolower(pathinfo($elemento,PATHINFO_EXTENSION)); //obtengo la extension del elemeto
 			 $valid_extensions = array('php', 'java','js'); //array de extensiones validas
@@ -200,20 +200,23 @@
 		public function gastoDesarrollador( $personal, $tiempo_desarrollo, $costo_desarrollo, $imprevistos)
 		{
 
-			if ($personal != "" && $tiempo_desarrollo != "" && $costo_desarrollo!= "") {
+			if ($personal != "" && $tiempo_desarrollo != "" && $costo_desarrollo!= "" && $imprevistos != "") {
 				
-				$costo_desarrollo_semanal = $costo_desarrollo /4;
-				$costo_semanal = $costo_desarrollo_semanal * $tiempo_desarrollo;
-				$costo_total = $costo_semanal * $personal;
-				$valor_olgura = $costo_total * 0.10;
-				$total = $costo_total + $valor_olgura + $imprevistos;
+				if (is_numeric($personal) == true && is_numeric($tiempo_desarrollo) == true && is_numeric($costo_desarrollo) == true && is_numeric($imprevistos) == true) {
+					
+					$costo_desarrollo_semanal = $costo_desarrollo /4;
+					$costo_semanal = $costo_desarrollo_semanal * $tiempo_desarrollo;
+					$costo_total = $costo_semanal * $personal;
+					$valor_olgura = $costo_total * 0.10;
+					$total = $costo_total + $valor_olgura + $imprevistos;
 				
-				return $total;
-			}
-			else{
+					return $total;
+				}else{
+					return "los valores no son numericos";
+				}
+			}else{
 				return "no se puede resolver";
 			}
-			
 		}
 
 		public function gastosDesarrolladorEstimados ($personal, $tiempo_desarrollo, $costo_desarrollo){
