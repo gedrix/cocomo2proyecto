@@ -162,19 +162,29 @@
 		//	return "hola";
 		//}
 
-		/*******************ESFUERZO DESARROLLO*********************/
+		/*******************TIEMPO DE PROYECTO*********************/
 		public function tiempoProyecto($valor_c, $total_esfuerzo, $valor_d)
 		{
 			if ($valor_c  != "" && $total_esfuerzo  != "" && $valor_d != "" ) {
-				$operacion_potencia = pow($total_esfuerzo, $valor_d );
-				$operacion_multiplicacion = $valor_c * $operacion_potencia;
-				return round ($operacion_multiplicacion, 1);
+				if ($valor_c>0 && $total_esfuerzo>0  && $valor_d>0 ) 
+				{
+					if (is_numeric($valor_c) && is_numeric($total_esfuerzo) && is_numeric($total_esfuerzo)) 
+					{
+						$operacion_potencia = pow($total_esfuerzo, $valor_d );
+						$operacion_multiplicacion = $valor_c * $operacion_potencia;
+						return round ($operacion_multiplicacion, 1);
+					}else{
+					return "no se puede resolver";
+					}
+				}else{
+					return "no se puede resolver";
+				}
 			}else{
 				return "no se puede resolver";
 			}
 			
 		}
-
+		/*******************TIEMPO DE PROYECTO 25% EXTRA*********************/
 		public function tiempoProyecto25($valor_c, $total_esfuerzo, $valor_d)
 		{
 			if ($valor_c  != "" && $total_esfuerzo  != "" && $valor_d != "") 
@@ -204,13 +214,22 @@
 		public function personalNecesario($total_esfuerzo,  $tiempo_desarrollo)
 		{
 			if ($total_esfuerzo != "" &&   $tiempo_desarrollo != "" ) {
-				$operacion = $total_esfuerzo / $tiempo_desarrollo;
-				if ($operacion > 0 && $operacion < 1.00) {
-				return 1;
+				if ($total_esfuerzo>0  && $tiempo_desarrollo>0 ) 
+				{
+					if (is_numeric($total_esfuerzo) && is_numeric($tiempo_desarrollo)) 
+					{
+						$operacion = $total_esfuerzo / $tiempo_desarrollo;
+						if ($operacion > 0 && $operacion < 1.00) {
+						return 1;
+						}else{
+						return round($operacion, 0);
+						}
+					}else{
+						return "no se puede resolver";
+					}
 				}else{
-				return round($operacion, 0);
+					return "no se puede resolver";
 				}
-			
 			}else{
 				return "no se puede resolver";
 			}
@@ -240,16 +259,27 @@
 			}
 		}
 
+		/*******************GASTOS DESARROLLO ESTIMADO*********************/
 		public function gastosDesarrolladorEstimados ($personal, $tiempo_desarrollo, $costo_desarrollo){
 			if ($personal != "" && $tiempo_desarrollo != "" && $costo_desarrollo!= "") {
-				
-				$costo_desarrollo_semanal = $costo_desarrollo /4;
-				$costo_semanal = $costo_desarrollo_semanal * $tiempo_desarrollo;
-				$costo_total = $costo_semanal * $personal;
+				if (is_numeric($personal) && is_numeric($tiempo_desarrollo) && is_numeric($costo_desarrollo)) {
+					if ($valpersonalor_c>0 && $tiempo_desarrollo>0  && $costo_desarrollo>0 ) {
+
+
+						$costo_desarrollo_semanal = $costo_desarrollo /4;
+						$costo_semanal = $costo_desarrollo_semanal * $tiempo_desarrollo;
+						$costo_total = $costo_semanal * $personal;
 								
-				return $costo_total;
-			}
-			else{
+						return $costo_total;
+
+						
+					}else{
+						return "no se puede resolver";
+					}
+				}else{
+					return "no se puede resolver";
+				}
+			}else{
 				return "no se puede resolver";
 			}
 		}  

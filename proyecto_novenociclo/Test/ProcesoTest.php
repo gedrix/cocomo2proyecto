@@ -255,6 +255,158 @@ class ProcesoTest extends TestCase
 
         $this->assertEquals($proceso->gastoDesarrollador($personal, $tiempo_desarrollo, $costo_desarrollo, $imprevistos),"los valores no son numericos");
     }
+
+
+    //***************** S A M **************************//
+
+    //                  FUNCION TIEMPO PROYECTO 
+
+    //funcion tiempoProyecto, cuando todos los valores son nulos
+    public function testtiempoProyectoNulo() {
+        
+        $proceso = new proceso();
+
+        $this->assertEquals($proceso->tiempoProyecto("","",""), 'no se puede resolver');
+    } 
+
+    //funcion tiempoProyecto, cuando todos los valores string
+    public function testtiempoProyectoVS() {
+        
+        $proceso = new proceso();
+
+        $this->assertEquals($proceso->tiempoProyecto("a","b","c"), 'no se puede resolver');
+    } 
+
+    //funcion tiempoProyecto, cuando  todos los valores son int
+    public function testtiempoProyectoVI() {
+
+        $proceso = new proceso();
+        
+        $valor_c = 2.5;
+        $total_esfuerzo =  1.12;
+        $valor_d = 0.38;
+        $operacion_potencia = pow($total_esfuerzo, $valor_d );
+        $operacion_multiplicacion = $valor_c * $operacion_potencia;
+        $totalTest = round($operacion_multiplicacion, 1);
+        $this->assertEquals($proceso->tiempoProyecto($valor_c,$total_esfuerzo, $valor_d), $totalTest);
+    } 
+
+    //Cuando los valores que se envían a la función tiempoProyecto son valores int negativos.
+    public function testtiempoProyectoVN()
+    {
+         $proceso = new proceso();
+         $valor_c = 2.5;
+         $total_esfuerzo =  -1.12;
+         $valor_d = 0.38;
+       
+        $this->assertEquals($proceso->tiempoProyecto($valor_c,$total_esfuerzo, $valor_d), 'no se puede resolver');
+    }
+
+    //                  FUNCION PERSONAL NECESARIO 
+
+    //funcion personalNecesario, cuando todos los valores son nulos
+    public function testpersonalNecesarioNulo() {
+        
+        $proceso = new proceso();
+
+        $this->assertEquals($proceso->personalNecesario("",""), 'no se puede resolver');
+    } 
+
+    //funcion personalNecesario, cuando todos los valores string
+    public function testpersonalNecesarioVS() {
+        
+        $proceso = new proceso();
+
+        $this->assertEquals($proceso->personalNecesario("a","b"), 'no se puede resolver');
+    } 
+
+    //funcion personalNecesario, cuando  todos los valores son int y el valor es 1 o menor
+    public function testpersonalNecesarioVIvalor1() {
+
+        $proceso = new proceso();
+        
+        $total_esfuerzo =  1.12;
+        $tiempo_desarrollo = 4;
+        
+        
+        $this->assertEquals($proceso->personalNecesario($total_esfuerzo, $tiempo_desarrollo), 1);
+    } 
+
+     //funcion personalNecesario, cuando  todos los valores son int y el valor mayor a 1 
+    public function testpersonalNecesarioVIvalormayor1() {
+
+        $proceso = new proceso();
+        
+        $total_esfuerzo =  4.12;
+        $tiempo_desarrollo = 2;
+        
+        
+        $this->assertEquals($proceso->personalNecesario($total_esfuerzo, $tiempo_desarrollo), 2);
+    } 
+
+    //Cuando los valores que se envían a la función personalNecesario son valores int negativos.
+    public function testpersonalNecesarioVN()
+    {
+         $proceso = new proceso();
+         
+         $total_esfuerzo =  -1.12;
+         $tiempo_desarrollo = 2;
+       
+        $this->assertEquals($proceso->personalNecesario($total_esfuerzo, $tiempo_desarrollo), 'no se puede resolver');
+    }
+
+    //                  FUNCION GASTOS DESARROLLO ESTIMADO
+
+    //funcion gastosDesarrolladorEstimados, cuando todos los valores son nulos
+    public function testgastosDesarrolladorEstimadosNulo() {
+        
+        $proceso = new proceso();
+
+        $this->assertEquals($proceso->gastosDesarrolladorEstimados("","",""), 'no se puede resolver');
+    } 
+
+    //funcion gastosDesarrolladorEstimados, cuando todos los valores string
+    public function testgastosDesarrolladorEstimadosVS() {
+        
+        $proceso = new proceso();
+
+        $this->assertEquals($proceso->gastosDesarrolladorEstimados("a","b","c"), 'no se puede resolver');
+    } 
+
+    //funcion gastosDesarrolladorEstimados, cuando  todos los valores son int 
+    public function testgastosDesarrolladorEstimadosVIvalor1() {
+
+        $proceso = new proceso();
+        
+        $personal =  5;
+        $tiempo_desarrollo = 4;
+        $costo_desarrollo = 500;
+
+
+        $costo_desarrollo_semanal = $costo_desarrollo /4;
+        $costo_semanal = $costo_desarrollo_semanal * $tiempo_desarrollo;
+        $costo_total = $costo_semanal * $personal;
+        
+        
+        $this->assertEquals($proceso->gastosDesarrolladorEstimados($personal, $tiempo_desarrollo, $costo_desarrollo), $costo_total);
+    } 
+
+    
+    //Cuando los valores que se envían a la función gastosDesarrolladorEstimados son valores int negativos.
+    public function testgastosDesarrolladorEstimadosVN()
+    {
+         $proceso = new proceso();
+
+        $personal =  5;
+        $tiempo_desarrollo = -4;
+        $costo_desarrollo = 500;
+       
+        $this->assertEquals($proceso->gastosDesarrolladorEstimados($personal, $tiempo_desarrollo, $costo_desarrollo), 'no se puede resolver');
+    }
+
+
+
+
 }
 
 
