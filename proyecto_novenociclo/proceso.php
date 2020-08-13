@@ -263,7 +263,7 @@
 		public function gastosDesarrolladorEstimados ($personal, $tiempo_desarrollo, $costo_desarrollo){
 			if ($personal != "" && $tiempo_desarrollo != "" && $costo_desarrollo!= "") {
 				if (is_numeric($personal) && is_numeric($tiempo_desarrollo) && is_numeric($costo_desarrollo)) {
-					if ($valpersonalor_c>0 && $tiempo_desarrollo>0  && $costo_desarrollo>0 ) {
+					if ($personal>0 && $tiempo_desarrollo>0  && $costo_desarrollo>0 ) {
 
 
 						$costo_desarrollo_semanal = $costo_desarrollo /4;

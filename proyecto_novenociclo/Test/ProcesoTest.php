@@ -255,7 +255,7 @@ class ProcesoTest extends TestCase
 
         $this->assertEquals($proceso->gastoDesarrollador($personal, $tiempo_desarrollo, $costo_desarrollo, $imprevistos),"los valores no son numericos");
     }
-
+    
 
     //***************** S A M **************************//
 
