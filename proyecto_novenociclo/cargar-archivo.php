@@ -1,17 +1,41 @@
 <?php 
 
-	 require "proceso.php";
-	 $proceso = new proceso;
-	 //&& $_POST['pago'] %% $_POST['eaf']
-	 //echo $_POST['pago'];
+	 require "proceso.php"; //se especifica que se requiere al archivo proceso
+	 $proceso = new proceso; //se crea un objeto de la clase proceso
+
+	 /*
+		BLOQUE DE CÓDIGO PHP
+
+		Al inicializar esta pagina, comprobamos que la data enviado desde el index.php sea diferente de null
+		si es asi las almacenamos en variables
+		
+		$directorio = almacena la ruta del directorio a analizar
+		$proyecto_soft = almacena el tipo de royecto
+		$costo_desarrollo = almacena el valor del pago mensual a los desarrolladores
+		$eaf = almacena el valor del eaf, enviado desde index.php
+		$imprevistos = almacena el valor ingresado para los imprevistos
+
+		En base al tipo de proyecto se aplican las formulas del COCOMO II con los valores correspondientes a cada tipo de proyecto.
+
+		$total_esfuerzo =  almacena el valor resultante de la función esfuerzoAplicado($eaf, $valor_a, $valor_b, $total_linea_codigo);
+
+		$tiempo_desarrollo =  almacena el valor resultante de la función tiempoProyecto($valor_c, $total_esfuerzo, $valor_d);
+		
+		$tiempo_total = almacena el valor resultante de la función tiempoProyecto25($valor_c, $total_esfuerzo, $valor_d);
+		
+		$personal =  almacena el valor resultante de la función personalNecesario($total_esfuerzo,  $tiempo_desarrollo);
+		
+		$gastoProgramador =  almacena el valor resultante de la función gastoDesarrollador($personal, $tiempo_total,$costo_desarrollo, $imprevistos);
+		
+		$gastoProgramadorEsti = almacena el valor resultante de la función gastosDesarrolladorEstimados($personal, $tiempo_desarrollo,$costo_desarrollo);
+
+	 */
 	if ($_POST['directorio'] != null  && $_POST['opcion'] != null && $_POST['pago'] != "" && $_POST['eaf'] != "" && $_POST['imprevistos'] != "") 
 	{
 		$directorio = $_POST['directorio'];
 		$proyecto_soft = $_POST['opcion'] ;
-		//echo leerArchivos($directorio);
 		$costo_desarrollo = $_POST['pago'];
 		$eaf = $_POST['eaf'];
-		//$tipo_proyecto="";
 		$imprevistos = $_POST['imprevistos'];
 		switch ($proyecto_soft) {
 			case 'a':
@@ -29,10 +53,7 @@
 					$personal =  $proceso->personalNecesario($total_esfuerzo,  $tiempo_desarrollo);
 					$gastoProgramador =  $proceso->gastoDesarrollador($personal, $tiempo_total,$costo_desarrollo, $imprevistos);
 					$gastoProgramadorEsti = $proceso->gastosDesarrolladorEstimados($personal, $tiempo_desarrollo,$costo_desarrollo);
-					 //echo "</br>"."esfuerzo persona  " .$total_esfuerzo;
-					// echo "</br>"."tiempo de desarrollo  ". $tiempo_desarrollo;
-					// echo "</br>"."personas requeridas  ". $personal;
-					// echo "</br>"."gasto en programadores". $gastoProgramador;
+
 				}else{
 					header("Location: index.php");
 				}
@@ -53,10 +74,7 @@
 					$personal =  $proceso->personalNecesario($total_esfuerzo,  $tiempo_desarrollo);
 					$gastoProgramador =  $proceso->gastoDesarrollador($personal, $tiempo_total,$costo_desarrollo, $imprevistos);
 					$gastoProgramadorEsti = $proceso->gastosDesarrolladorEstimados($personal, $tiempo_desarrollo,$costo_desarrollo);
-					// echo "</br>"."esfuerzo persona  " .$total_esfuerzo;
-					// echo "</br>"."tiempo de desarrollo  ". $tiempo_desarrollo;
-					// echo "</br>"."personas requeridas  ". $personal;
-					// echo "</br>"."gasto en programadores". $gastoProgramador;
+		
 				}else{
 					header("Location: index.php");
 				}
@@ -76,10 +94,7 @@
 					$personal =  $proceso->personalNecesario($total_esfuerzo,  $tiempo_desarrollo);
 					$gastoProgramador =  $proceso->gastoDesarrollador($personal, $tiempo_total,$costo_desarrollo, $imprevistos);
 					$gastoProgramadorEsti = $proceso->gastosDesarrolladorEstimados($personal, $tiempo_desarrollo,$costo_desarrollo);
-					// echo "</br>"."esfuerzo persona  " .$total_esfuerzo;
-					// echo "</br>"."tiempo de desarrollo  ". $tiempo_desarrollo;
-					// echo "</br>"."personas requeridas  ". $personal;
-					// echo "</br>"."gasto en programadores". $gastoProgramador;
+		
 				}else{
 					header("Location: index.php");
 				}
@@ -108,7 +123,8 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/estilos.css"/>
 	<script type="text/javascript">
-
+		
+		//Función para retornar a index.php
 		function Regresar()
 		{
 			//window.history.back();
@@ -117,7 +133,9 @@
 	</script>
 		
  </head>
-
+	<!--
+		Bloque de codigo HTML5 para crear la visualización de las variables tratadas en el bloque de codigo php
+	-->
  <body>
  	<center><img src="cocomo.png" width="100%" height="20%"></center>
 	<div class="container">
