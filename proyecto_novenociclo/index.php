@@ -15,6 +15,10 @@
 	<link rel="stylesheet" href="css/estilos.css"/>
 	
 	<script>
+		/*
+			Función encargada de recoger los valores seleccionados de la tabla ATRIBUTOS DEL PROYECTO Y COEFICIENTE EAF
+			y que se almacena en la variable eaf.
+		*/
 		function getSelect(){
 			var crs = document.getElementById('crs').value;
 			var tbd = document.getElementById('tbd').value;
@@ -33,11 +37,16 @@
 			var pdr = document.getElementById('pdr').value;
 			
 			var eaf = crs * tbd * cp * lrt * lm * vem * trr * ca * cis * ea * emv * elp * uhs * ami * pdr;
-			//alert(eaf);
 			document.getElementById("eaf").value = eaf;
 		}
 	</script>
 </head>
+<!--
+	Bloque de codigo HTML5 para crear la visualización de las tablas que contienen los coeficientes de COCOMO II y el tipo
+	de proyecto a elegir, ademas del formulario para cargar la ruta del archivo del cual extraeremos las lineas de codigo posteriormente,
+	el tipo de proyecto, el pago mensual para los desarrolladores, un valor asignado para imprevistos, ademas de el valor de coeficiente
+	precalculado en el bloque anterior.
+-->
 <body>
 	<center><img src="cocomo.png" width="100%"></center>
 	<div class="container-fluid">
