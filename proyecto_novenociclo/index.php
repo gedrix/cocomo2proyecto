@@ -448,19 +448,19 @@
 			<div class="col-4">
 				<form action="cargar-archivo.php" method="post">
 					<br><br><p>Seleccionar ruta del directorio</p>
-					<input class="form-control" type="text" name="directorio" /><br/>
+					<input class="form-control" type="text" name="directorio" required /><br/>
 					<p>Seleccionar tipo de Proyecto de Software</p>
-					<select class="form-control" name="opcion">
+					<select class="form-control" name="opcion" required>
 						<option value="a" selected>Orgánicos</option> 
 						<option value="b">Semiseparados</option>
 						<option value="c">Integrales</option>
 					</select>
 					<p>Pago mensual a programadores</p>
-					<input class="form-control" type="number" name="pago" /><br>
+					<input class="form-control" type="number" name="pago" required/><br>
 					<p>EAF</p>
-					<input class="form-control" type="text" name="eaf" id="eaf" required/><br>
+					<input class="form-control" type="text" name="eaf" id="eaf"  readonly="readonly"  required/><br>
 					<p>Imprevistos</p>
-					<input class="form-control" type="number" name="imprevistos" id="imprevistos"/><br>
+					<input class="form-control" type="number" name="imprevistos" id="imprevistos" required/><br>
 					<input class="btn btn-primary" type="submit" name="submit" value="Simular" />
 				</form>
 		

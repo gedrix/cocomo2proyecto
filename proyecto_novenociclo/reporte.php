@@ -13,7 +13,7 @@
     $cad=$_GET['v1'];
     $valores = explode("-", $cad);
 ?>
-<<html>
+<html>
 <head>
     <title></title>
 </head>
@@ -22,66 +22,81 @@
         que serán impresas en el reporte 
  -->
 <body>
-<center><img src="cocomo.png" width="100%"></center>
-<h2>Reporte de Estimación</h2>
+<center><img src="cocomo.png" width="100%" height="30%"></center>
 
-<h3>Datos informativos del proyecto: </h3>
+        
+    <h3>Datos informativos del proyecto:</h3>
+<p>Los valores estimados son  correspondientes al proyecto alojado en la ruta: <?php echo $valores[0] ?></p>
+    <table>
+        <tr>
+            <th >TIPO DE PROYECTO</th><td><?php echo $valores[1] ?></td> </tr>
+          <tr>   <th >PAGO MENSUAL</th><td><?php echo $valores[2] ?></td> </tr>
+             <tr><th >EAF</th><td><?php echo $valores[3] ?></td>   </tr>
+             <tr><th >IMPREVISTOS</th><td><?php echo $valores[4] ?></td>   </tr>
+       
 
-<div class="container">
-  
+    </table>
+
         <div class="row">
-        <div class="col-2">
-            <table class="table">
-                <tr>
-                    <th scope="col">Ruta:</th>
-                    <td align="right"><?php echo $valores[0] ?></td>
-                </tr>
-                 <tr>
-                    <th scope="col">Líneas de código:   </th>
-                    <td align="right"><?php echo $valores[5] ?></td>
-                </tr>
-                <tr>
-                    <th scope="col">Tipo de Proyecto:</th>
-                    <td align="right"><?php echo $valores[1] ?></td>
-                </tr>
-                <tr>
-                    <th scope="col">Pago mensual al Recurso Humano:</th>
-                    <td align="right"><?php echo "$".$valores[2]." dólares" ?></td>
-                </tr>
-                <tr>
-                    <th scope="col">Atributos del proyecto y factor EAF:</th>
-                    <td align="right"><?php echo $valores[3] ?></td>
-                </tr>
-                <tr>
-                    <th scope="col">Valor asignado para imprevistos:</th>
-                    <td align="right"><?php echo "$".$valores[4]." dólares"  ?></td>
-                </tr>
-            </table>
-        </div>
-<h3>Estimación de costos, personal y tiempo: </h3>
-
             <div class="col-6">
-            <table class="table">
-                <tr>
-                <th scope="col">Esfuerzo persona:</th>
-                <td align="right"><?php echo $valores[6] ?></td>
-                </tr>
-                <tr>
-                <th scope="col">Tiempo estimado de desarrollo:</th>
-                <td align="right"><?php echo $valores[7]." semanas"?></td>
-                </tr>
-                <tr>
-                <th scope="col">Cantidad estimada de Recurso Humano requerido:</th>
-                <td align="right"><?php echo $valores[8]." personas"?></td>
-                </tr>
-                <tr>
-                <th scope="col">TOTAL de Gastos Estimados</th>
-                <td align="right"><?php echo $valores[9] ?></td>
-                </tr>
-            </table>
+                <h3 class="titulos">VALORES ESTIMADOS</h3>
+                <p>Estos valores son los estimados por el Cocomo II, los mismos no toman en cuenta los posibles valores de holgura o valores de imprevistos necesarios para que se acerquen a la realidad.</p>
+                <table class="table">
+                    <tr>
+                    <td scope="col">TOTAL LÍNEAS DE CÓDIGO</td>
+                    <td><?php echo $valores[5] ?></td>
+                    </tr>
+                    <tr>
+                    <td scope="col">ESFUERZO PERSONA</td>
+                    <td><?php echo $valores[6] ?></td>
+                    </tr>
+                    <tr>
+                    <td scope="col">TIEMPO DE DESARROLLO</td>
+                    <td><?php echo $valores[7]." semanas"?></td>
+                    </tr>
+                    <tr>
+                    <td scope="col">PERSONAS REQUERIDAS</td>
+                    <td><?php echo $valores[9]." personas"?></td>
+                    </tr>
+                    <tr>
+                    <td scope="col">TOTAL GASTOS</td>
+                    <td><?php echo $valores[10]?></td>
+                    </tr>
+                </table>
             </div>
+ 
+            <div class="col-6">
+                <h3 class="titulos">VALORES TOTALES</h3>
+                <p>Estos valores son calculados tomando en cuenta un 25% más en el tiempo de desarrollo y un 10% más en el valor de desarrollo sumado al valor de posibles imprevistos</p> 
+                <table class="table">
+                    <tr>
+                    <td scope="col">TOTAL LÍNEAS DE CÓDIGO</td>
+                    <td><?php echo $valores[5] ?></td>
+                    </tr>
+                    <tr>
+                    <td scope="col">ESFUERZO PERSONA</td>
+                    <td><?php echo $valores[6] ?></td>
+                    </tr>
+                    <tr>
+                    <td scope="col">TIEMPO DE DESARROLLO</td>
+                    <td><?php echo $valores[8]." semanas"?></td>
+                    </tr>
+                    <tr>
+                    <td scope="col">PERSONAS REQUERIDAS</td>
+                    <td><?php echo $valores[9]." personas"?></td>
+                    </tr>
+                    <tr>
+                    <td scope="col">TOTAL GASTOS</td>
+                    <td><?php echo $valores[11]?></td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
-    </div>
+        
+    
+
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
 

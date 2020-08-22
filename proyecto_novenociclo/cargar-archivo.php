@@ -112,7 +112,7 @@
 		header("Location: index.php");
 	}
 	
-	$cadena = $directorio."-".$tipo_proyecto."-".$costo_desarrollo."-".$eaf."-".$imprevistos."-".$total_linea_codigo."-".$total_esfuerzo."-".$tiempo_desarrollo."-".$personal."-".$gastoProgramador;
+	$cadena = $directorio."-".$tipo_proyecto."-".$costo_desarrollo."-".$eaf."-".$imprevistos."-".$total_linea_codigo."-".$total_esfuerzo."-".$tiempo_desarrollo."-".$tiempo_total."-".$personal."-".$gastoProgramadorEsti."-".$gastoProgramador;
 	
  ?>
 <!DOCTYPE html>
