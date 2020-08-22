@@ -1,8 +1,7 @@
 <?php 
-
+	session_start();
 	 require "proceso.php"; //se especifica que se requiere al archivo proceso
 	 $proceso = new proceso; //se crea un objeto de la clase proceso
-
 	 /*
 		BLOQUE DE CÓDIGO PHP
 
@@ -41,7 +40,7 @@
 			case 'a':
 				$tipo_proyecto="Orgánico";
 				$total_linea_codigo =  $proceso->leerArchivos($directorio);
-				if ($total_linea_codigo != "Ruta no valida") {
+				if ($total_linea_codigo >0) {
 					//echo $total_linea_codigo;
 					$valor_a = 3.2;
 					$valor_b = 1.05;
@@ -53,16 +52,18 @@
 					$personal =  $proceso->personalNecesario($total_esfuerzo,  $tiempo_desarrollo);
 					$gastoProgramador =  $proceso->gastoDesarrollador($personal, $tiempo_total,$costo_desarrollo, $imprevistos);
 					$gastoProgramadorEsti = $proceso->gastosDesarrolladorEstimados($personal, $tiempo_desarrollo,$costo_desarrollo);
-
+					$_SESSION["rutaValida"] = "true";
 				}else{
+					$_SESSION["rutaValida"] = "false";
 					header("Location: index.php");
+					
 				}
 			break;
 
 			case 'b':
 				$tipo_proyecto="Semi-Separado";
 				$total_linea_codigo =  $proceso->leerArchivos($directorio);
-				if ($total_linea_codigo != "Ruta no valida") {
+				if ($total_linea_codigo  >0) {
 					$valor_a = 3;
 					$valor_b = 1.12;
 					$valor_c = 2.5;
@@ -74,8 +75,9 @@
 					$personal =  $proceso->personalNecesario($total_esfuerzo,  $tiempo_desarrollo);
 					$gastoProgramador =  $proceso->gastoDesarrollador($personal, $tiempo_total,$costo_desarrollo, $imprevistos);
 					$gastoProgramadorEsti = $proceso->gastosDesarrolladorEstimados($personal, $tiempo_desarrollo,$costo_desarrollo);
-		
+					$_SESSION["rutaValida"] = "true";
 				}else{
+					$_SESSION["rutaValida"] = "false";
 					header("Location: index.php");
 				}
 			break;
@@ -83,7 +85,7 @@
 			case 'c':
 				$tipo_proyecto="Integrales";
 				$total_linea_codigo =  $proceso->leerArchivos($directorio);
-				if ($total_linea_codigo != "Ruta no valida") {
+				if ($total_linea_codigo  >0) {
 					$valor_a = 2.8;
 					$valor_b = 1.20;
 					$valor_c = 2.5;
@@ -94,9 +96,10 @@
 					$personal =  $proceso->personalNecesario($total_esfuerzo,  $tiempo_desarrollo);
 					$gastoProgramador =  $proceso->gastoDesarrollador($personal, $tiempo_total,$costo_desarrollo, $imprevistos);
 					$gastoProgramadorEsti = $proceso->gastosDesarrolladorEstimados($personal, $tiempo_desarrollo,$costo_desarrollo);
-		
+					$_SESSION["rutaValida"] = "true";
 				}else{
-					header("Location: index.php");
+					$_SESSION["rutaValida"] = "false";
+					header("Location: index.php");;
 				}
 			break;
 			default:
